@@ -113,7 +113,8 @@ class FileEntity extends GetxController {
       Get.put(FileExplorerController()).getDirectoryEntities(path: parentPath);
     }
     else {
-      return SynchronousFuture(null);
+      await rawFsEntity.rename(parentPath + newName);
+      Get.put(FileExplorerController()).getDirectoryEntities(path: parentPath);
     }
   }
 
