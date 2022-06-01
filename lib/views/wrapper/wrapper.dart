@@ -41,7 +41,30 @@ class Wrapper extends StatelessWidget {
       child: Scaffold(
         body: Stack(
           children: [
-            Container(color: HexColor('#020202'), height: Get.height, width: Get.width),
+            Container(
+                color: HexColor('#020202'),
+                height: Get.height, width: Get.width,
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: RotatedBox(
+                    quarterTurns: 1,
+                    child: SizedBox(
+                      width: Get.height * .35,
+                      height: Get.width * 0.25,
+                      child: Center(
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Icon(Icons.folder, color: Colors.amber, size: 40),
+                            SizedBox(width: 10),
+                            Text('Files', style: TextStyle(color: Colors.white, fontSize: 40)),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ),
             const Align(
               alignment: Alignment.centerLeft,
               child: CustomDrawer()
