@@ -64,6 +64,7 @@ class FileExplorerController extends GetxController {
       if(copiedEntity.value!.rawFsEntity is File) {
         await (copiedEntity.value!.rawFsEntity as File).copy('${currentDirectory.value}/${copiedEntity.value!.name}');
         getDirectoryEntities(path: currentDirectory.value);
+        Navigator.pop(context);
         return;
       }
       else {
